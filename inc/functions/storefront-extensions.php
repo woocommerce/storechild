@@ -55,8 +55,6 @@ function storechild_set_theme_mods() {
 	remove_theme_mod( 'sd_button_rounded' );
 	remove_theme_mod( 'sd_button_size' );
 	remove_theme_mod( 'sd_content_background_color' );
-	remove_theme_mod( 'storefront_footer_background_color' );
-	remove_theme_mod( 'storefront_header_link_color' );
 
 	// Set default values for settings in customizer
 	foreach ( storechild_defaults() as $mod => $val ) {
