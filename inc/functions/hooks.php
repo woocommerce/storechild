@@ -14,6 +14,4 @@ add_action( 'wp_enqueue_scripts', 'storechild_enqueue_child_styles', 9999 );
 /**
  * Extension integrations / tweaks
  */
-add_action( 'customize_register', 'storechild_customize_storefront_controls_settings', 99 );
 add_action( 'wp_print_scripts', 'storechild_javascript_class', 0 );
-add_action( 'after_switch_theme', 'storechild_set_theme_mods' );

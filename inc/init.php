@@ -25,7 +25,6 @@ require get_stylesheet_directory() . '/inc/functions/plugged.php';
  * Adjust Storefront setting defaults with these colors
  */
 require get_stylesheet_directory() . '/inc/customizer/display.php';
-require get_stylesheet_directory() . '/inc/customizer/controls.php';
 
 /**
  * Structure.
@@ -38,4 +37,4 @@ require get_stylesheet_directory() . '/inc/structure/structure.php';
  * Declares incompatibility with specific extensions.
  * Modifies extensions current behaviour to suit the child theme.
  */
-require get_stylesheet_directory() . '/inc/functions/storefront-extensions.php';
+require get_stylesheet_directory() . '/inc/customizer/settings.php';

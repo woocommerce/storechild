@@ -1,6 +1,6 @@
 <?php
 /**
- * Storechild Storefront extension compatibility
+ * Set Storefront setting defaults and adjust controls etc
  *
  * @package storechild
  */
