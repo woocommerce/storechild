@@ -18,7 +18,6 @@ require get_stylesheet_directory() . '/inc/customizer/hooks.php';
  * Enqueue styles, specify color functions, etc.
  */
 require get_stylesheet_directory() . '/inc/functions/setup.php';
-require get_stylesheet_directory() . '/inc/functions/plugged.php';
 
 /**
  * Customizer.
