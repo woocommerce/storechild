@@ -12,11 +12,6 @@ add_action( 'wp_enqueue_scripts', 'storechild_enqueue_styles' );
 add_action( 'wp_enqueue_scripts', 'storechild_enqueue_child_styles', 9999 );
 
 /**
- * Filters
- */
-add_filter( 'storefront_custom_header_args', 'storechild_custom_header_defaults' );
-
-/**
  * Extension integrations / tweaks
  */
 add_action( 'customize_register', 'storechild_customize_storefront_controls_settings', 99 );

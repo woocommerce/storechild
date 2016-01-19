@@ -40,16 +40,6 @@ function storechild_enqueue_child_styles() {
 }
 
 /**
- * Sets the default header image
- */
-function storechild_custom_header_defaults( $args ) {
-	$args['default-image']  = get_stylesheet_directory_uri() . '/images/header.jpg';
-	$args['height']         = 1000;
-
-	return $args;
-}
-
-/**
  * Adds the .js class to the body
  */
 function storechild_javascript_class() {
