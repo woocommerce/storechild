@@ -8,10 +8,7 @@ The following things are configured in the child theme:
 
 - Script loading
 - Frontend JavaScript detection
-- Header Image
-- Default extension values
-- Initial extension configuration
-- Header Search/Cart compatibility snippet
+- Default values / Initial configuration
 - Child theme Javascript file
 
 
