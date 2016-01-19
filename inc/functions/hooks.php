@@ -19,7 +19,7 @@ add_filter( 'storefront_custom_header_args', 'storechild_custom_header_defaults'
 /**
  * Extension integrations / tweaks
  */
-add_action( 'customize_register', 'storechild_customize_storefront_extensions', 99 );
+add_action( 'customize_register', 'storechild_customize_storefront_controls_settings', 99 );
 add_action( 'wp_print_scripts', 'storechild_javascript_class', 0 );
 add_action( 'after_switch_theme', 'storechild_set_theme_mods' );
 add_action( 'wp', 'storechild_storefront_woocommerce_customiser' );
