@@ -65,27 +65,3 @@ function storechild_set_theme_mods() {
 		}
 	}
 }
-
-/**
- * Storefront WooCommerce Customiser compatibility tweaks
- */
-function storechild_storefront_woocommerce_customiser() {
-	remove_action( 'storefront_header', 'storefront_product_search', 40 );
-	remove_action( 'storefront_header', 'storefront_header_cart', 60 );
-
-	$cart_link = true;
-	$search    = true;
-
-	if ( class_exists( 'Storefront_WooCommerce_Customiser' ) ) {
-		$cart_link 	= get_theme_mod( 'swc_header_cart', true );
-		$search 	= get_theme_mod( 'swc_header_search', true );
-	}
-
-	if ( true == $cart_link ) {
-		add_action( 'storefront_header', 'storefront_header_cart', 30 );
-	}
-
-	if ( true == $search ) {
-		add_action( 'storefront_header', 'storefront_product_search', 10 );
-	}
-}
