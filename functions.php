@@ -5,10 +5,16 @@
  * @package storechild
  */
 
+add_action( 'init', 'storechild_includes' );
+
 /**
- * Initialize all the things.
+ * Load the individual classes required by this theme
  */
-require get_stylesheet_directory() . '/inc/init.php';
+function storechild_includes() {
+	include_once( 'inc/class-storechild-customizer.php' );
+	include_once( 'inc/class-storechild-functions.php' );
+	include_once( 'inc/class-storechild-structure.php' );
+}
 
 /**
  * Do not add custom code / snippets here.
