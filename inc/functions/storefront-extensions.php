@@ -11,11 +11,9 @@
  */
 function storechild_defaults() {
 	return array(
-
-		// 'storefront_header_background_color' => '#000000',
-		// 'storefront_header_text_color'       => '#ffffff',
-
-	); 
+		'storefront_header_background_color' => '#000000',
+		'storefront_header_text_color'       => '#ffffff',
+	);
 }
 
 /**
@@ -34,7 +32,7 @@ function storechild_customize_storefront_extensions( $wp_customize ) {
 	$wp_customize->remove_control( 'sd_button_divider_2' );
 	$wp_customize->remove_control( 'storefront_footer_background_color' );
 	$wp_customize->remove_control( 'storefront_header_link_color' );
-	
+
 	// Set default values for extension settings in customizer
 	foreach ( storechild_defaults() as $mod => $val ) {
 		$setting = $wp_customize->get_setting( $mod );
@@ -74,7 +72,7 @@ function storechild_set_theme_mods() {
 function storechild_storefront_woocommerce_customiser() {
 	remove_action( 'storefront_header', 'storefront_product_search', 40 );
 	remove_action( 'storefront_header', 'storefront_header_cart', 60 );
-	
+
 	$cart_link = true;
 	$search    = true;
 

@@ -26,7 +26,6 @@ require get_stylesheet_directory() . '/inc/functions/plugged.php';
  */
 require get_stylesheet_directory() . '/inc/customizer/display.php';
 require get_stylesheet_directory() . '/inc/customizer/controls.php';
-require get_stylesheet_directory() . '/inc/customizer/colors.php';
 
 /**
  * Structure.
