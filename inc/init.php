@@ -6,7 +6,7 @@
  */
 
 /**
- * Hooks & Filters.
+ * Hooks.
  * Hooks and filters pertaining to different parts of the theme.
  */
 require get_stylesheet_directory() . '/inc/functions/hooks.php';
@@ -24,16 +24,10 @@ require get_stylesheet_directory() . '/inc/functions/setup.php';
  * Adjust Storefront setting defaults with these colors
  */
 require get_stylesheet_directory() . '/inc/customizer/display.php';
+require get_stylesheet_directory() . '/inc/customizer/settings.php';
 
 /**
  * Structure.
  * Any functions pertaining to the customisation of the Storefront layout.
  */
 require get_stylesheet_directory() . '/inc/structure/structure.php';
-
-/**
- * Storefront Extensions.
- * Declares incompatibility with specific extensions.
- * Modifies extensions current behaviour to suit the child theme.
- */
-require get_stylesheet_directory() . '/inc/customizer/settings.php';
