@@ -14,6 +14,6 @@ The following things are configured in the child theme:
 
 ### Default Storefront and Extension values
 
-Storechild uses `storechild_defaults()` to automatically set some defaults for you in
-the customizer. This is useful to have your defaults organized. You just need to add
-the Storefront/Extension options into the returned array and you’ll be all set.
+Storechild uses `Storechild_Customizer::storechild_defaults()` to automatically set some defaults for you in
+the customizer. This is useful to have your defaults organized. You just need to add the Storefront/Extension
+options into the returned array and you’ll be all set.
