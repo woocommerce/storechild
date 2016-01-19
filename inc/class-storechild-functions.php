@@ -25,7 +25,6 @@ class Storechild_Functions {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_child_styles' ), 9999 );
-		add_action( 'wp_print_scripts', array( $this, 'javascript_class' ), 0 );
 	}
 
 	/**
@@ -54,15 +53,6 @@ class Storechild_Functions {
 		}
 
 	    wp_enqueue_script( 'storechild', get_stylesheet_directory_uri() . '/js/storechild.js', array( 'jquery' ), '1.0', true );
-	}
-
-	/**
-	 * Adds the .js class to the body
-	 */
-	public function javascript_class() {
-		if ( ! is_admin() ) {
-			echo '<script type="text/javascript">( function( html ) { html.setAttribute( "class", "js" + ( html.getAttribute( "class" ) || "" ) ); } ).call(null, document.documentElement);</script>';
-		}
 	}
 }
 
