@@ -1,0 +1,14 @@
+# Compiled CSS
+style.css
+style-rtl.css
+rtl.css
+
+# Minified js
+/js/*.min.js
+
+# Sass
+.sass-cache
+
+# Grunt
+/node_modules/
+npm-debug.log

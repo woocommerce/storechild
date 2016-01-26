@@ -1,6 +1,6 @@
 
 /* storechild.js */
 
-(function( $ ) {
+(function() {
 	
-}).call( this, jQuery );
+}).call( this );
