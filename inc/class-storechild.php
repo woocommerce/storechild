@@ -13,16 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Storechild' ) ) :
 
 class Storechild {
-
 	/**
 	 * Setup class.
 	 *
 	 * @since 1.0
 	 */
 	public function __construct() {
-		$theme              = wp_get_theme( 'storechild' );
-		$storechild_version = $theme['Version'];
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_child_scripts' ), 99 );
 	}
@@ -46,7 +42,7 @@ class Storechild {
 
 		wp_style_add_data( 'storefront-child-style', 'rtl', 'replace' );
 
-	    wp_enqueue_script( 'storechild', get_stylesheet_directory_uri() . '/js/storechild.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'storechild', get_stylesheet_directory_uri() . '/js/storechild.min.js', array( 'jquery' ), $storechild_version, true );
 	}
 }
 
