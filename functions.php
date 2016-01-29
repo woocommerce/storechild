@@ -11,8 +11,8 @@ add_action( 'init', 'storechild_includes' );
  * Load the individual classes required by this theme
  */
 function storechild_includes() {
+	require_once( 'inc/class-storechild.php' );
 	require_once( 'inc/class-storechild-customizer.php' );
-	require_once( 'inc/class-storechild-functions.php' );
 	require_once( 'inc/class-storechild-structure.php' );
 }
 

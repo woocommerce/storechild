@@ -3,7 +3,7 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	grunt.initConfig({
-		
+
 		// JavaScript linting with JSHint.
 		jshint: {
 			options: {
@@ -60,7 +60,7 @@ module.exports = function( grunt ) {
 				]
 			}
 		},
-		
+
 		// RTLCSS
 		rtlcss: {
 			options: {
@@ -80,7 +80,7 @@ module.exports = function( grunt ) {
 			}
 		}
 	});
-	
+
 	// Load required libraries and modules
 	var fs = require('fs');
 	require('colors');
@@ -101,18 +101,6 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'css', [
 		'sass',
-		'rtlcss',
-		'rtlcss:rename'
+		'rtlcss'
 	] );
-	
-	grunt.registerTask( 'rtlcss:rename', function() {
-		var rename = {
-			'style-rtl.css': 'rtl.css'
-		};
-		Object.keys(rename).forEach(function(file) {
-			fs.renameSync(file, rename[file]);
-			console.log('Renamed %s to %s', file.cyan, rename[file].cyan);
-		});
-	} );
-	
 };

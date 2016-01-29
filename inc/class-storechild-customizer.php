@@ -91,7 +91,7 @@ class Storechild_Customizer {
 	 * @return void
 	 */
 	public function add_customizer_css() {
-		$header_text_color 		= storefront_sanitize_hex_color( get_theme_mod( 'storefront_header_text_color', apply_filters( 'storefront_default_header_text_color', '#9aa0a7' ) ) );
+		$header_text_color 		= get_theme_mod( 'storefront_header_text_color', apply_filters( 'storefront_default_header_text_color', '#9aa0a7' ) );
 
 		$style = '
 			.main-navigation ul li.smm-active li ul.products li.product h3 {
