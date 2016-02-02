@@ -1,8 +1,7 @@
 <?php
 /**
- * Storechild Customizer
- *
- * Handles Customizer tweaks and modifications
+ * Storechild_Customizer Class
+ * Makes adjustments to Storefront cores Customizer implementation.
  *
  * @author   WooThemes
  * @since    1.0
@@ -12,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storechild_Customizer' ) ) :
+if ( ! class_exists( 'Storechild_Customizer' ) ) {
 
 class Storechild_Customizer {
 
@@ -28,10 +27,10 @@ class Storechild_Customizer {
 	}
 
 	/**
-	 * Returns an array with default storefront options
+	 * Returns an array of the desired default Storefront options
 	 * @return array
 	 */
-	public function storechild_defaults() {
+	public function return_storechild_defaults() {
 		return array(
 			'storefront_header_background_color' => '#000000',
 			'storefront_header_text_color'       => '#ffffff',
@@ -39,12 +38,13 @@ class Storechild_Customizer {
 	}
 
 	/**
-	 * Set Customizer settings.
+	 * Set default Customizer settings based on Storechild design.
+	 * @uses return_storechild_defaults()
 	 * @return void
 	 */
 	public function edit_default_settings( $wp_customize ) {
 		// Set default values for settings in customizer
-		foreach ( Storechild_Customizer::storechild_defaults() as $mod => $val ) {
+		foreach ( Storechild_Customizer::return_storechild_defaults() as $mod => $val ) {
 			$setting = $wp_customize->get_setting( $mod );
 			if ( is_object( $setting ) ) {
 				$setting->default = $val;
@@ -53,7 +53,7 @@ class Storechild_Customizer {
 	}
 
 	/**
-	 * Modify any of the default controls
+	 * Modify the default controls
 	 * @return void
 	 */
 	public function edit_default_controls( $wp_customize ) {
@@ -61,7 +61,7 @@ class Storechild_Customizer {
 	}
 
 	/**
-	 * Add custom CSS based on settings in Storefront core
+	 * Add CSS using settings obtained from the theme options.
 	 * @return void
 	 */
 	public function add_customizer_css() {
@@ -76,6 +76,6 @@ class Storechild_Customizer {
 	}
 }
 
-endif;
+}
 
 return new Storechild_Customizer();

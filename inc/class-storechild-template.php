@@ -1,6 +1,6 @@
 <?php
 /**
- * Storechild Structure
+ * Storechild_Template Class
  *
  * @author   WooThemes
  * @since    1.0
@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storechild_Structure' ) ) :
+if ( ! class_exists( 'Storechild_Template' ) ) {
 
-class Storechild_Structure {
+class Storechild_Template {
 
 	/**
 	 * Setup class.
@@ -41,6 +41,6 @@ class Storechild_Structure {
 	}
 }
 
-endif;
+}
 
-return new Storechild_Structure();
+return new Storechild_Template();

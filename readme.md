@@ -8,14 +8,14 @@ The following things are configured in the child theme:
 
 * Script loading
 * Frontend JavaScript detection
-* Default values / Initial configuration
+* Default values / Initial configuration of Storechild and it's integrations with the Storefront Extensions.
 * Child theme Javascript file
 
 ### Default Storefront and Extension values
 
-Storechild uses `Storechild_Customizer::storechild_defaults()` to automatically set some defaults for you in
-the customizer. This is useful to have your defaults organized. You just need to add the Storefront/Extension
-options into the returned array and you’ll be all set.
+Storechild uses `Storechild_Customizer::return_storechild_defaults()` and `Storechild_Integrations::return_storechild_extension_defaults()`
+to automatically set some defaults for you in the customizer. Use the example to set defaults for any settings you want
+to change.
 
 ### Grunt
 Storechild uses [Grunt](http://gruntjs.com/) to fulfill various tasks such as;

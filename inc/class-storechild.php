@@ -1,6 +1,6 @@
 <?php
 /**
- * Storechild Functions
+ * Storechild Class
  *
  * @author   WooThemes
  * @since    1.0
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storechild' ) ) :
+if ( ! class_exists( 'Storechild' ) ) {
 
 class Storechild {
 	/**
@@ -46,6 +46,6 @@ class Storechild {
 	}
 }
 
-endif;
+}
 
 return new Storechild();

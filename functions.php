@@ -5,6 +5,9 @@
  * @package storechild
  */
 
+/**
+ * Set the theme version number as a global variable
+ */
  $theme              = wp_get_theme( 'storechild' );
  $storechild_version = $theme['Version'];
 
@@ -13,7 +16,7 @@
  */
 require_once( 'inc/class-storechild.php' );
 require_once( 'inc/class-storechild-customizer.php' );
-require_once( 'inc/class-storechild-structure.php' );
+require_once( 'inc/class-storechild-template.php' );
 require_once( 'inc/class-storechild-integrations.php' );
 require_once( 'inc/plugged.php' );
 
