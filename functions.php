@@ -14,6 +14,7 @@
 require_once( 'inc/class-storechild.php' );
 require_once( 'inc/class-storechild-customizer.php' );
 require_once( 'inc/class-storechild-structure.php' );
+require_once( 'inc/plugged.php' );
 
 /**
  * Do not add custom code / snippets here.
