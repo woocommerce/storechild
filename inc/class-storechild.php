@@ -42,7 +42,7 @@ class Storechild {
 
 		wp_style_add_data( 'storefront-child-style', 'rtl', 'replace' );
 
-		wp_enqueue_script( 'storechild', get_stylesheet_directory_uri() . '/js/storechild.min.js', array( 'jquery' ), $storechild_version, true );
+		wp_enqueue_script( 'storechild', get_stylesheet_directory_uri() . '/assets/js/storechild.min.js', array( 'jquery' ), $storechild_version, true );
 	}
 }
 
