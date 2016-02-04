@@ -30,21 +30,21 @@ class Storechild_Customizer {
 	 * Returns an array of the desired default Storefront options
 	 * @return array
 	 */
-	public function return_storechild_defaults() {
-		return array(
+	public function get_storechild_defaults() {
+		return apply_filters( 'storechild_default_settings', $args = array(
 			'storefront_header_background_color' => '#000000',
 			'storefront_header_text_color'       => '#ffffff',
-		);
+		) );
 	}
 
 	/**
 	 * Set default Customizer settings based on Storechild design.
-	 * @uses return_storechild_defaults()
+	 * @uses get_storechild_defaults()
 	 * @return void
 	 */
 	public function edit_default_settings( $wp_customize ) {
 		// Set default values for settings in customizer
-		foreach ( Storechild_Customizer::return_storechild_defaults() as $mod => $val ) {
+		foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
 			$setting = $wp_customize->get_setting( $mod );
 			if ( is_object( $setting ) ) {
 				$setting->default = $val;

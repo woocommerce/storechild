@@ -31,21 +31,21 @@ class Storechild_Integrations {
 	 * Returns an array of the desired Storefront extension settings
 	 * @return array
 	 */
-	public function return_storechild_extension_defaults() {
-		return array(
+	public function get_storechild_extension_defaults() {
+		return apply_filters( 'storechild_default_extension_settings', $args = array(
             // Storefront Designer
             'sd_content_background_color'   => '#ffffff',
-		);
+		) );
 	}
 
     /**
 	 * Set default settings for Storefront extensions to provide compatibility with Storechild.
-	 * @uses return_storechild_extension_defaults()
+	 * @uses get_storechild_extension_defaults()
 	 * @return void
 	 */
 	public function set_extension_default_settings( $wp_customize ) {
 		// Set default values for settings in customizer
-		foreach ( Storechild_Integrations::return_storechild_extension_defaults() as $mod => $val ) {
+		foreach ( Storechild_Integrations::get_storechild_extension_defaults() as $mod => $val ) {
 			$setting = $wp_customize->get_setting( $mod );
 			if ( is_object( $setting ) ) {
 				$setting->default = $val;
