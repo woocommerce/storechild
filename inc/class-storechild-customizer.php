@@ -21,9 +21,9 @@ class Storechild_Customizer {
 	 * @since 1.0
 	 */
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ), 1000 );
-		add_action( 'customize_register', array( $this, 'edit_default_settings' ), 99 );
-		add_action( 'customize_register', array( $this, 'edit_default_controls' ), 99 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ), 	1000 );
+		add_action( 'customize_register', array( $this, 'edit_default_settings' ), 	99 );
+		add_action( 'customize_register', array( $this, 'edit_default_controls' ), 	99 );
 	}
 
 	/**
@@ -43,9 +43,9 @@ class Storechild_Customizer {
 	 * @return void
 	 */
 	public function edit_default_settings( $wp_customize ) {
-		// Set default values for settings in customizer
 		foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
 			$setting = $wp_customize->get_setting( $mod );
+
 			if ( is_object( $setting ) ) {
 				$setting->default = $val;
 			}
@@ -65,7 +65,7 @@ class Storechild_Customizer {
 	 * @return void
 	 */
 	public function add_customizer_css() {
-		$header_text_color 		= get_theme_mod( 'storefront_header_text_color', apply_filters( 'storefront_default_header_text_color', '#9aa0a7' ) );
+		$header_text_color 		= get_theme_mod( 'storefront_header_text_color' );
 
 		$style = '
 			.main-navigation ul li.smm-active li ul.products li.product h3 {
