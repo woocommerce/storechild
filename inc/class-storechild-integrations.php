@@ -25,7 +25,7 @@ class Storechild_Integrations {
 		add_action( 'after_switch_theme', 				array( $this, 'edit_theme_mods' ) );
 		add_action( 'customize_register', 				array( $this, 'edit_controls' ),						99 );
 		add_action( 'customize_register',				array( $this, 'set_extension_default_settings' ),		99 );
-		add_filter( 'init',								array( $this, 'default_theme_mod_values' ) );
+		add_action( 'init',								array( $this, 'default_theme_mod_values' ) );
 	}
 
 	/**
