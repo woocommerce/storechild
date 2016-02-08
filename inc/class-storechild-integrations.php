@@ -22,9 +22,10 @@ class Storechild_Integrations {
 	 * @since 1.0
 	 */
 	public function __construct() {
-		add_action( 'customize_register', 				array( $this, 'edit_controls' ),                       99 );
-		add_action( 'customize_register',               array( $this, 'set_extension_default_settings' ),      99 );
 		add_action( 'after_switch_theme', 				array( $this, 'edit_theme_mods' ) );
+		add_action( 'customize_register', 				array( $this, 'edit_controls' ),						99 );
+		add_action( 'customize_register',				array( $this, 'set_extension_default_settings' ),		99 );
+		add_filter( 'init',								array( $this, 'default_theme_mod_values' ) );
 	}
 
 	/**
@@ -52,6 +53,19 @@ class Storechild_Integrations {
 			if ( is_object( $setting ) ) {
 				$setting->default = $val;
 			}
+		}
+	}
+
+	/**
+	 * Returns a default theme_mod value if there is none set.
+	 * @uses get_storechild_extension_defaults()
+	 * @return void
+	 */
+	public function default_theme_mod_values() {
+		foreach ( Storechild_Integrations::get_storechild_extension_defaults() as $mod => $val ) {
+			add_filter( 'theme_mod_' . $mod, function( $setting ) use ( $val ) {
+				return $setting ? $setting : $val;
+			});
 		}
 	}
 

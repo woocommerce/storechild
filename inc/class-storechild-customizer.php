@@ -21,9 +21,10 @@ class Storechild_Customizer {
 	 * @since 1.0
 	 */
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ), 	1000 );
-		add_action( 'customize_register', array( $this, 'edit_default_settings' ), 	99 );
-		add_action( 'customize_register', array( $this, 'edit_default_controls' ), 	99 );
+		add_action( 'wp_enqueue_scripts',	array( $this, 'add_customizer_css' ),						1000 );
+		add_action( 'customize_register',	array( $this, 'edit_default_controls' ),					99 );
+		add_action( 'customize_register',	array( $this, 'edit_default_customizer_settings' ),			99 );
+		add_filter( 'init',					array( $this, 'default_theme_mod_values' )					);
 	}
 
 	/**
@@ -42,13 +43,26 @@ class Storechild_Customizer {
 	 * @uses get_storechild_defaults()
 	 * @return void
 	 */
-	public function edit_default_settings( $wp_customize ) {
+	public function edit_default_customizer_settings( $wp_customize ) {
 		foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
 			$setting = $wp_customize->get_setting( $mod );
 
 			if ( is_object( $setting ) ) {
 				$setting->default = $val;
 			}
+		}
+	}
+
+	/**
+	 * Returns a default theme_mod value if there is none set.
+	 * @uses get_storechild_defaults()
+	 * @return void
+	 */
+	public function default_theme_mod_values() {
+		foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
+			add_filter( 'theme_mod_' . $mod, function( $setting ) use ( $val ) {
+				return $setting ? $setting : $val;
+			});
 		}
 	}
 
