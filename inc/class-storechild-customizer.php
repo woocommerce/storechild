@@ -25,6 +25,10 @@ class Storechild_Customizer {
 		add_action( 'customize_register',	array( $this, 'edit_default_controls' ),					99 );
 		add_action( 'customize_register',	array( $this, 'edit_default_customizer_settings' ),			99 );
 		add_action( 'init',					array( $this, 'default_theme_mod_values' ) );
+
+		if ( version_compare( $storefront_version, '2.0.0', '<' ) ) {
+			add_action( 'init',				array( $this, 'default_theme_settings' ) );
+		}
 	}
 
 	/**
@@ -63,6 +67,24 @@ class Storechild_Customizer {
 			add_filter( 'theme_mod_' . $mod, function( $setting ) use ( $val ) {
 				return $setting ? $setting : $val;
 			});
+		}
+	}
+
+	/**
+	 * Sets default theme color filters for storefront color values.
+	 * This function is required for Storefront < 2.0.0 support
+	 * @uses get_storechild_defaults()
+	 * @return void
+	 */
+	public function default_theme_settings() {
+		$prefix_regex = '/^storefront_/';
+		foreach ( self::get_storechild_defaults() as $mod => $val) {
+			if ( preg_match( $prefix_regex, $mod ) ) {
+				$filter = preg_replace( $prefix_regex, 'storefront_default_', $mod );
+				add_filter( $filter, function( $_ ) use ( $val ) {
+					return $val;
+				}, 99 );
+			}
 		}
 	}
 
