@@ -21,6 +21,9 @@ class Storechild_Customizer {
 	 * @since 1.0
 	 */
 	public function __construct() {
+		$theme 					= wp_get_theme( 'storefront' );
+		$storefront_version 	= $theme['Version'];
+		
 		add_action( 'wp_enqueue_scripts',	array( $this, 'add_customizer_css' ),						1000 );
 		add_action( 'customize_register',	array( $this, 'edit_default_controls' ),					99 );
 		add_action( 'customize_register',	array( $this, 'edit_default_customizer_settings' ),			99 );
