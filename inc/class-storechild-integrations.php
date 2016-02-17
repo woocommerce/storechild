@@ -24,49 +24,6 @@ class Storechild_Integrations {
 	public function __construct() {
 		add_action( 'after_switch_theme', 				array( $this, 'edit_theme_mods' ) );
 		add_action( 'customize_register', 				array( $this, 'edit_controls' ),						99 );
-		add_action( 'customize_register',				array( $this, 'set_extension_default_settings' ),		99 );
-		add_action( 'init',								array( $this, 'default_theme_mod_values' ) );
-	}
-
-	/**
-	 * Returns an array of the desired Storefront extension settings
-	 * @return array
-	 */
-	public function get_storechild_extension_defaults() {
-		return apply_filters( 'storechild_default_extension_settings', $args = array(
-			/**
-			 * Storefront Designer
-			 */
-			'sd_content_background_color'   => '#ffffff',
-		) );
-	}
-
-    /**
-	 * Set default settings for Storefront extensions to provide compatibility with Storechild.
-	 * @uses get_storechild_extension_defaults()
-	 * @return void
-	 */
-	public function set_extension_default_settings( $wp_customize ) {
-		foreach ( Storechild_Integrations::get_storechild_extension_defaults() as $mod => $val ) {
-			$setting = $wp_customize->get_setting( $mod );
-
-			if ( is_object( $setting ) ) {
-				$setting->default = $val;
-			}
-		}
-	}
-
-	/**
-	 * Returns a default theme_mod value if there is none set.
-	 * @uses get_storechild_extension_defaults()
-	 * @return void
-	 */
-	public function default_theme_mod_values() {
-		foreach ( Storechild_Integrations::get_storechild_extension_defaults() as $mod => $val ) {
-			add_filter( 'theme_mod_' . $mod, function( $setting ) use ( $val ) {
-				return $setting ? $setting : $val;
-			});
-		}
 	}
 
     /**
