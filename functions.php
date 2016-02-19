@@ -8,11 +8,11 @@
 /**
  * Set the theme version number as a global variable
  */
-$theme				= wp_get_theme( 'storechild' );
-$storechild_version	= $theme['Version'];
+$theme              = wp_get_theme( 'storechild' );
+$storechild_version = $theme['Version'];
 
-$theme				= wp_get_theme( 'storefront' );
-$storefront_version	= $theme['Version'];
+$theme              = wp_get_theme( 'storefront' );
+$storefront_version = $theme['Version'];
 
 /**
  * Load the individual classes required by this theme
