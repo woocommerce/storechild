@@ -81,10 +81,6 @@ module.exports = function( grunt ) {
 		}
 	});
 
-	// Load required libraries and modules
-	var fs = require('fs');
-	require('colors');
-
 	// Load NPM tasks to be used here
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
