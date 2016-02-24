@@ -39,7 +39,8 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 		 */
 		public function get_storechild_defaults() {
 			return apply_filters( 'storechild_default_settings', $args = array(
-				'storefront_header_background_color' => '#000000',
+				'storefront_header_background_color' => '#FFA200',
+				'storefront_header_link_color'       => '#ffffff',
 				'storefront_header_text_color'       => '#ffffff',
 			) );
 		}
@@ -52,11 +53,7 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 		 */
 		public function edit_default_customizer_settings( $wp_customize ) {
 			foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
-				$setting = $wp_customize->get_setting( $mod );
-
-				if ( is_object( $setting ) ) {
-					$setting->default = $val;
-				}
+				$wp_customize->get_setting( $mod )->default = $val;
 			}
 		}
 
