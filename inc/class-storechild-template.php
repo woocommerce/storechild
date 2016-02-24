@@ -3,6 +3,7 @@
  * Storechild_Template Class
  *
  * @author   WooThemes
+ * @package  Storechild
  * @since    1.0
  */
 
@@ -11,6 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( 'Storechild_Template' ) ) {
+	/**
+	 * The Storechild Template Class
+	 */
 	class Storechild_Template {
 
 		/**

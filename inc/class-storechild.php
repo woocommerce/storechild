@@ -3,6 +3,7 @@
  * Storechild Class
  *
  * @author   WooThemes
+ * @package  Storechild
  * @since    1.0
  */
 
@@ -11,6 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( 'Storechild' ) ) {
+	/**
+	 * The main Storechild class
+	 */
 	class Storechild {
 		/**
 		 * Setup class.

@@ -4,6 +4,7 @@
  * Makes adjustments to Storefront cores Customizer implementation.
  *
  * @author   WooThemes
+ * @package  Storechild
  * @since    1.0
  */
 
@@ -12,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( 'Storechild_Customizer' ) ) {
+	/**
+	 * The Storechild Customizer class
+	 */
 	class Storechild_Customizer {
 
 		/**
@@ -48,6 +52,7 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 		/**
 		 * Set default Customizer settings based on Storechild design.
 		 *
+		 * @param  array $wp_customize the Customizer object.
 		 * @uses   get_storechild_defaults()
 		 * @return void
 		 */
@@ -94,6 +99,7 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 		/**
 		 * Modify the default controls
 		 *
+		 * @param array $wp_customize the Customizer object.
 		 * @return void
 		 */
 		public function edit_default_controls( $wp_customize ) {

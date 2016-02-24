@@ -5,6 +5,7 @@
  * if they need to differ from the original setting.
  *
  * @author   WooThemes
+ * @package  Storechild
  * @since    1.0
  */
 
@@ -13,6 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( 'Storechild_Integrations' ) ) {
+	/**
+	 * The Storechild Integrations class
+	 */
 	class Storechild_Integrations {
 
 		/**
@@ -28,6 +32,7 @@ if ( ! class_exists( 'Storechild_Integrations' ) ) {
 		/**
 		 * Remove unused/incompatible controls from the Customizer to avoid confusion
 		 *
+		 * @param array $wp_customize the Customizer object.
 		 * @return void
 		 */
 		public function edit_controls( $wp_customize ) {
