@@ -28,6 +28,7 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ),               999 );
 			add_action( 'customize_register', array( $this, 'edit_default_controls' ),            99 );
+			add_action( 'customize_register', array( $this, 'edit_default_customizer_settings' ), 99 );
 			add_action( 'init',               array( $this, 'default_theme_mod_values' ) );
 
 			if ( version_compare( $storefront_version, '2.0.0', '<' ) ) {
@@ -46,6 +47,19 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 				'storefront_header_link_color'       => '#ffffff',
 				'storefront_header_text_color'       => '#ffffff',
 			) );
+		}
+
+		/**
+		 * Set default Customizer settings based on Storechild design.
+		 *
+		 * @param  array $wp_customize the Customizer object.
+		 * @uses   get_storechild_defaults()
+		 * @return void
+		 */
+		public function edit_default_customizer_settings( $wp_customize ) {
+			foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
+				$wp_customize->get_setting( $mod )->default = $val;
+			}
 		}
 
 		/**
