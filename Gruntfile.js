@@ -78,6 +78,16 @@ module.exports = function( grunt ) {
 					'style.css'
 				]
 			}
+		},
+
+		// makepot
+		makepot: {
+			target: {
+				options: {
+					domainPath: '/languages',
+					type: 'wp-theme',
+				}
+			}
 		}
 	});
 
@@ -87,6 +97,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-rtlcss' );
+	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
 	// Register tasks
 	grunt.registerTask( 'default', [
