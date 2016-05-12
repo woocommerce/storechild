@@ -13,8 +13,7 @@ The following things are configured in the child theme:
 
 ### Default Storefront and Extension values
 
-Storechild uses `Storechild_Customizer::return_storechild_defaults()` and `Storechild_Integrations::return_storechild_extension_defaults()`
-to automatically set some defaults for you in the customizer. Use the example to set defaults for any settings you want
+Storechild filters `storefront_setting_default_values` to set some defaults for you in the customizer. See `Storechild_Customizer::storechild_defaults()` and use it as an example to set defaults for any settings you want
 to change.
 
 ### Grunt
@@ -23,6 +22,7 @@ Storechild uses [Grunt](http://gruntjs.com/) to fulfill various tasks such as;
 * Sass compilation into CSS
 * RTL CSS generation
 * Javascript minification + linting
+* .pot file generation
 
 This can all be done automatically using the `watch` task. `cd` into the `storechild` directory in terminal then run
 `grunt watch`. This will monitor the files in the theme and compile / minify etc as and when they're modified. Remember

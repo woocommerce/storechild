@@ -11,3 +11,18 @@ License URI:      http://www.gnu.org/licenses/gpl-2.0.html
 Tags:             light, dark, two-columns, right-sidebar, left-sidebar, responsive-layout, accessibility-ready
 Text Domain:      storechild
 */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Alegreya", serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900; }

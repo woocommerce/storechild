@@ -23,6 +23,7 @@ if ( ! class_exists( 'Storechild' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			add_filter( 'storefront_google_font_families', array( $this, 'storechild_fonts' ) );
 		}
 
 		/**
@@ -43,6 +44,21 @@ if ( ! class_exists( 'Storechild' ) ) {
 			 * Javascript
 			 */
 			wp_enqueue_script( 'storechild', get_stylesheet_directory_uri() . '/assets/js/storechild.min.js', array( 'jquery' ), $storechild_version, true );
+		}
+
+		/**
+		 * Replaces Source Sans with the Storechild fonts
+		 *
+		 * @param  array $fonts the desired fonts.
+		 * @return array
+		 */
+		public function storechild_fonts( $fonts ) {
+			$fonts = array(
+				'alegreya'      => 'Alegreya:400,400italic,700,900',
+				'alegreya-sans' => 'Alegreya+Sans:400,400italic,700,900',
+			);
+
+			return $fonts;
 		}
 	}
 }

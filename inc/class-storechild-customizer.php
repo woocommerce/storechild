@@ -5,7 +5,7 @@
  *
  * @author   WooThemes
  * @package  Storechild
- * @since    1.0
+ * @since    1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,74 +26,22 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 		public function __construct() {
 			global $storefront_version;
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ),               999 );
-			add_action( 'customize_register', array( $this, 'edit_default_controls' ),            99 );
-			add_action( 'customize_register', array( $this, 'edit_default_customizer_settings' ), 99 );
-			add_action( 'init',               array( $this, 'default_theme_mod_values' ) );
-
-			if ( version_compare( $storefront_version, '2.0.0', '<' ) ) {
-				add_action( 'init',           array( $this, 'default_theme_settings' ) );
-			}
+			add_action( 'wp_enqueue_scripts',                array( $this, 'add_customizer_css' ),               999 );
+			add_action( 'customize_register',                array( $this, 'edit_default_controls' ),            99 );
+			add_filter( 'storefront_setting_default_values', array( $this, 'storechild_defaults' ) );
 		}
 
 		/**
 		 * Returns an array of the desired default Storefront options
 		 *
+		 * @param array $args an array of default values.
 		 * @return array
 		 */
-		public function get_storechild_defaults() {
-			return apply_filters( 'storechild_default_settings', $args = array(
-				'storefront_header_background_color' => '#FFA200',
-				'storefront_header_link_color'       => '#ffffff',
-				'storefront_header_text_color'       => '#ffffff',
-			) );
-		}
+		public function storechild_defaults( $args ) {
+			$args['storefront_header_background_color'] = '#FFA200';
+			$args['storefront_accent_color']            = '#FFA200';
 
-		/**
-		 * Set default Customizer settings based on Storechild design.
-		 *
-		 * @param  array $wp_customize the Customizer object.
-		 * @uses   get_storechild_defaults()
-		 * @return void
-		 */
-		public function edit_default_customizer_settings( $wp_customize ) {
-			foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
-				$wp_customize->get_setting( $mod )->default = $val;
-			}
-		}
-
-		/**
-		 * Returns a default theme_mod value if there is none set.
-		 *
-		 * @uses   get_storechild_defaults()
-		 * @return void
-		 */
-		public function default_theme_mod_values() {
-			foreach ( Storechild_Customizer::get_storechild_defaults() as $mod => $val ) {
-				add_filter( 'theme_mod_' . $mod, function( $setting ) use ( $val ) {
-					return $setting ? $setting : $val;
-				});
-			}
-		}
-
-		/**
-		 * Sets default theme color filters for storefront color values.
-		 * This function is required for Storefront < 2.0.0 support
-		 *
-		 * @uses   get_storechild_defaults()
-		 * @return void
-		 * @todo   remove when Storefront 2.1 is released.
-		 */
-		public function default_theme_settings() {
-			$prefix_regex = '/^storefront_/';
-			foreach ( self::get_storechild_defaults() as $mod => $val ) {
-				if ( preg_match( $prefix_regex, $mod ) ) {
-					$filter = preg_replace( $prefix_regex, 'storefront_default_', $mod );
-					add_filter( $filter, function( $setting ) use ( $val ) {
-						return $val;
-					}, 99 );
-				}
-			}
+			return apply_filters( 'storechild_customizer_defaults', $args );
 		}
 
 		/**
