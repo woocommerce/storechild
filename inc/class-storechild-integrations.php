@@ -25,7 +25,6 @@ if ( ! class_exists( 'Storechild_Integrations' ) ) {
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_action( 'after_switch_theme', array( $this, 'edit_settings' ) );
 			add_action( 'customize_register', array( $this, 'edit_controls' ), 99 );
 		}
 
@@ -48,26 +47,6 @@ if ( ! class_exists( 'Storechild_Integrations' ) ) {
 			$wp_customize->remove_control( 'sd_header_layout_divider_after' );
 			$wp_customize->remove_control( 'sd_button_divider_1' );
 			$wp_customize->remove_control( 'sd_button_divider_2' );
-		}
-
-		/**
-		 * Remove any pre-existing theme mods for settings that are incompatible with Storechild.
-		 *
-		 * @return void
-		 */
-		public function edit_settings() {
-			/**
-			 * Storefront Designer
-			 */
-			remove_theme_mod( 'sd_header_layout' );
-			remove_theme_mod( 'sd_button_flat' );
-			remove_theme_mod( 'sd_button_shadows' );
-			remove_theme_mod( 'sd_button_background_style' );
-			remove_theme_mod( 'sd_button_rounded' );
-			remove_theme_mod( 'sd_button_size' );
-			remove_theme_mod( 'sd_header_layout_divider_after' );
-			remove_theme_mod( 'sd_button_divider_1' );
-			remove_theme_mod( 'sd_button_divider_2' );
 		}
 	}
 }
