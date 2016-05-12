@@ -22,7 +22,7 @@ if ( ! class_exists( 'Storechild' ) ) {
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			add_action( 'wp_enqueue_scripts',              array( $this, 'enqueue_styles' ) );
 			add_filter( 'storefront_google_font_families', array( $this, 'storechild_fonts' ) );
 		}
 

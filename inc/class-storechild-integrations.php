@@ -25,7 +25,7 @@ if ( ! class_exists( 'Storechild_Integrations' ) ) {
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_action( 'after_switch_theme', array( $this, 'edit_theme_mods' ) );
+			add_action( 'after_switch_theme', array( $this, 'edit_settings' ) );
 			add_action( 'customize_register', array( $this, 'edit_controls' ), 99 );
 		}
 
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Storechild_Integrations' ) ) {
 		 *
 		 * @return void
 		 */
-		public function edit_theme_mods() {
+		public function edit_settings() {
 			/**
 			 * Storefront Designer
 			 */

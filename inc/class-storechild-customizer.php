@@ -26,8 +26,8 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 		public function __construct() {
 			global $storefront_version;
 
-			add_action( 'wp_enqueue_scripts',                array( $this, 'add_customizer_css' ),               999 );
-			add_action( 'customize_register',                array( $this, 'edit_default_controls' ),            99 );
+			add_action( 'wp_enqueue_scripts',                array( $this, 'add_customizer_css' ),    999 );
+			add_action( 'customize_register',                array( $this, 'edit_default_controls' ), 99 );
 			add_filter( 'storefront_setting_default_values', array( $this, 'storechild_defaults' ) );
 		}
 
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Storechild_Customizer' ) ) {
 			$header_text_color = get_theme_mod( 'storefront_header_text_color' );
 
 			$style = '
-				.main-navigation ul li.smm-active li ul.products li.product h3 {
+				.site-header {
 					color: ' . $header_text_color . ';
 				}';
 
